@@ -1,0 +1,31 @@
+<aside class="sidebar">
+    <h2 class="sidebar-title">Painel</h2>
+
+    <nav class="sidebar-nav">
+
+        <a href="{{ url_for('main.index') }}">
+            <i class="fa-solid fa-chart-line"></i> Dashboard
+        </a>
+
+        <a href="{{ url_for('main.sites_list') }}">
+            <i class="fa-solid fa-link"></i> Sites
+        </a>
+
+        <a href="{{ url_for('main.categorias') }}">
+            <i class="fa-solid fa-folder-open"></i> Categorias
+        </a>
+
+        <a href="{{ url_for('main.tags') }}">
+            <i class="fa-solid fa-tags"></i> Tags
+        </a>
+
+        <a href="{{ url_for('main.favoritos') }}">
+            <i class="fa-solid fa-star"></i> Favoritos
+        </a>
+
+        <a href="{{ url_for('main.config') }}">
+            <i class="fa-solid fa-gear"></i> Configurações
+        </a>
+
+    </nav>
+</aside>

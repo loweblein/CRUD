@@ -1,0 +1,37 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Cadastrar Site{% endblock %}
+
+{% block content %}
+
+<div class="page">
+    <div class="page-header">
+        <h2>Cadastrar novo site</h2>
+    </div>
+
+    <div class="form-card">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                <label>{{ form.nome.label }}</label>
+                {{ form.nome(class="input-text", placeholder="Ex: Google, YouTube..." ) }}
+                {% for error in form.nome.errors %}
+                    <span class="error-text">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label>{{ form.url.label }}</label>
+                {{ form.url(class="input-text", placeholder="https://exemplo.com" ) }}
+                {% for error in form.url.errors %}
+                    <span class="error-text">{{ error }}</span>
+                {% endfor %}
+            </div>
+
+            <button class="btn-primary" type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

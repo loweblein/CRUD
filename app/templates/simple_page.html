@@ -1,0 +1,14 @@
+{% extends "layout/base.html" %}
+
+{% block title %}{{ page_title or "Página" }}{% endblock %}
+
+{% block content %}
+
+<div class="page">
+    <div class="page-header">
+        <h2>{{ page_title }}</h2>
+    </div>
+    <p>{{ message }}</p>
+</div>
+
+{% endblock %}

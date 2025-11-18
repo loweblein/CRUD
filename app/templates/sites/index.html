@@ -1,0 +1,44 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Sites cadastrados{% endblock %}
+
+{% block content %}
+
+<div class="page">
+    <div class="page-header">
+        <h2>Sites cadastrados</h2>
+        <a class="btn-primary" href="{{ url_for('main.add_site') }}">
+            <i class="fa-solid fa-plus"></i> Novo site
+        </a>
+    </div>
+
+    {% if sites %}
+    <table class="sites-table">
+        <tr>
+            <th>Nome</th>
+            <th>URL</th>
+            <th>Ações</th>
+        </tr>
+
+        {% for site in sites %}
+        <tr>
+            <td>{{ site.nome }}</td>
+            <td>
+                <a href="{{ site.url }}" target="_blank">{{ site.url }}</a>
+            </td>
+            <td>
+                <a href="{{ url_for('main.delete_site', id=site.id) }}"
+                   style="color:#f85149;"
+                   onclick="return confirm('Confirma a exclusão?');">
+                    Excluir
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Nenhum site cadastrado.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

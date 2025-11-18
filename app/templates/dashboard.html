@@ -1,0 +1,56 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="page">
+    <div class="page-header">
+        <h2>Visão geral</h2>
+        <a class="btn-primary" href="{{ url_for('main.add_site') }}">
+            <i class="fa-solid fa-plus"></i> Novo site
+        </a>
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-label">Total de sites</div>
+            <div class="card-value">{{ total_sites }}</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Favoritos</div>
+            <div class="card-value">0</div>
+            <div class="card-sub">Ainda não implementado</div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">Categorias</div>
+            <div class="card-value">0</div>
+            <div class="card-sub">Em breve</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Últimos sites cadastrados</h3>
+
+        {% if recent_sites %}
+        <table class="sites-table">
+            <tr>
+                <th>Nome</th>
+                <th>URL</th>
+            </tr>
+            {% for site in recent_sites %}
+            <tr>
+                <td>{{ site.nome }}</td>
+                <td><a href="{{ site.url }}" target="_blank">{{ site.url }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>Nenhum site cadastrado ainda.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
